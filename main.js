@@ -3,6 +3,7 @@ let birthYear = +ageUser;
 let cityUser = prompt("В каком городе вы живете?");
 let hobbyUser = prompt("Ваш любимый вид спорта?");
 
+console.log(`Ваш год рождения: ${birthYear}`);
 console.log(cityUser);
 console.log(hobbyUser);
 
