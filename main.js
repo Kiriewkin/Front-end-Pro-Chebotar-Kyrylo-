@@ -1,3 +1,3 @@
-for (let i = 20; i <= 30; i += 0.5) {
-    console.log(i);
+for (let i = 10; i <= 100; i += 10) {
+    console.log(`${i} долларов = ${i * 26} гривен`);
 }
