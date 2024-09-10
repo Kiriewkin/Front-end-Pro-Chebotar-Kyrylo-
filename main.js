@@ -1,7 +1,19 @@
-let N = parseInt(prompt("Введіть ціле число N:"), 10);
+let number = parseInt(prompt("Введіть ціле число:"), 10);
+let isPrime = true;
 
-for (let i = 1; i <= 100; i++) {
-    if (i * i <= N) {
-        console.log(i);
+if (number > 1) {
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) { 
+            isPrime = false; 
+            break;
+        }
     }
+} else {
+    isPrime = false;
+}
+
+if (isPrime) {
+    console.log(`${number} є простим числом.`);
+} else {
+    console.log(`${number} не є простим числом.`);
 }
