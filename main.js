@@ -3,6 +3,9 @@ let birthYear = +ageUser;
 let cityUser = prompt("В каком городе вы живете?");
 let hobbyUser = prompt("Ваш любимый вид спорта?");
 
+let currentYear = new Date().getFullYear();
+let age = currentYear - birthYear;
+
 console.log(`Ваш год рождения: ${birthYear}`);
 console.log(cityUser);
 console.log(hobbyUser);
@@ -25,4 +28,6 @@ if (ageUser === null || ageUser === "") {
 
 if (birthYear === null) {
     console.log("Шкода, що Ви не захотіли ввести свій рік народження.");
+} else {
+    console.log(`Ваш возраст: ${age}`);
 }
