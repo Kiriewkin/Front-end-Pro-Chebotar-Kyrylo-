@@ -1,18 +1,17 @@
-let str = prompt("Write: 'Hello world'");
-let arr = ['l', 'd'];
+function meanNumber(numbers) {
+    let sum = 0;
 
-function eraseFromStr(str, arrayToDelete) {
-    let newStrArray = [];
-    let strArray = str.split('');
-
-    for (let i = 0; i < strArray.length; i++) {
-        let char = strArray[i];
-        if (!arrayToDelete.includes(char)) {
-            newStrArray.push(char);
+    for (let i = 0; i < numbers.length; i++) {
+        if (typeof numbers[i] !== 'number') {
+            console.log("Массив должен содержать только числа");
+            return;
         }
+        sum += numbers[i];
     }
-    return newStrArray.join('');
+
+    let mean = sum / numbers.length;
+    return mean;
 }
 
-let result = eraseFromStr(str, arr);
-console.log(result);
+let numbers = [1, 2, 50, 4, 5];
+console.log(meanNumber(numbers));
