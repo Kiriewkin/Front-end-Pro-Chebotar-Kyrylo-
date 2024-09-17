@@ -1,17 +1,11 @@
-function meanNumber(numbers) {
-    let sum = 0;
-
-    for (let i = 0; i < numbers.length; i++) {
-        if (typeof numbers[i] !== 'number') {
-            console.log("Массив должен содержать только числа");
-            return;
-        }
-        sum += numbers[i];
+function removeElement(array, item) {
+    const index = array.indexOf(item);
+    if (index !== -1) {
+        array.splice(index, 1);
     }
-
-    let mean = sum / numbers.length;
-    return mean;
+    return array;
 }
 
-let numbers = [1, 2, 50, 4, 5];
-console.log(meanNumber(numbers));
+const array = [1, 3, 4, 6, 2, 5, 7];
+console.log(removeElement(array, 5));
+
