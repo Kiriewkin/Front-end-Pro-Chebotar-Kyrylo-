@@ -1,4 +1,4 @@
-let str = "hello world";
+let str = prompt("Write: 'Hello world'");
 let arr = ['l', 'd'];
 
 function eraseFromStr(str, arrayToDelete) {
