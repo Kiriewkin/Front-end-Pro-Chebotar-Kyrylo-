@@ -1,13 +1,12 @@
-function sum() {
-    let total = 0;
-
-    return function(value) {
-        total += value;
-        return total;
-    };
+function add (first, second, third) {
+    return first + second + third;
 }
 
-const add = sum();
+console.log(add(5, 7, 9));
 
-console.log(add(4));
-console.log(add(26));
+
+function deleteNum (num1, num2, num3) {
+    return (num1 + num2) * num3;
+}
+
+console.log(deleteNum(3, 3, 1));
