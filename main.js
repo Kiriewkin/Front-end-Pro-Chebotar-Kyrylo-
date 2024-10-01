@@ -1,18 +1,8 @@
-const userData = {
-    userName: "Kyrylo",
-    userAge: 21,
-    userLocation: "Odessa",
-    userHobbies: [
-        "Fishing",
-        "Cars",
-        "Dota"
-    ],
-    displayInfo() {
-        console.log(`Name: ${this.userName}`);
-        console.log(`Age: ${this.userAge}`);
-        console.log(`Location: ${this.userLocation}`);
-        console.log(`Hobbies: ${this.userHobbies.join(", ")}`);
-    }
-};
+const arrayNumbers = [1, 2, 3, 4, 5, 6];
 
-userData.displayInfo();
+const checkedEvenNumbers = array => {
+    return array.filter(number => number % 2 === 0);
+}
+
+const evenNumbers = checkedEvenNumbers(arrayNumbers);
+console.log(evenNumbers);
