@@ -1,11 +1,6 @@
-const textContainer = document.querySelector(`.text-container`);
-const text = document.querySelector(`.text`);
-const btnChangeColor = document.querySelector(`.btnChangeColor`);
+const randomImage = document.querySelector(`#randomImage`);
+const min = 1;
+const max = 9;
+const randomIndex = Math.floor(Math.random() * (max + min - 1) + min);
 
-btnChangeColor.addEventListener(`click`, () => {
-    if (text.style.color === 'red') {
-        text.style.color = '';
-    } else {
-        text.style.color = 'red';
-    }
-});
+randomImage.src = `./images/${randomIndex}.jpg`;
