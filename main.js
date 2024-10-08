@@ -1,18 +1,7 @@
-const btnAdd = document.querySelector(`#btnAdd`)
-const btnOpenLink = document.querySelector(`#btnOpenLink`)
+const parentDiv = document.querySelector(`#parentDiv`);
 
-let linkUser = '';
-
-btnAdd.addEventListener(`click`, () => {
-    linkUser = prompt(`Куда хотите перейти?`);
-})
-
-btnOpenLink.addEventListener(`click`, () => {
-    if(linkUser) {
-        window.location.href = linkUser;
+parentDiv.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+        alert(`Вы нажали на: ${e.target.innerText}`);
     }
-    else {
-        alert(`Введите ссылку`)
-    }
-})
-
+});
