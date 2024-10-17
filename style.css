@@ -4,7 +4,143 @@
 
 .wrapper {
     width: calc(100% - 60px);
-    max-width: 1440x;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.slider {
+    padding: 50px 0 60px;
+    background: #fff;
+}
+
+.services-link {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #24a3ff;
+    text-decoration: none;
+    transition: all .3s;
+    margin-right: 2px;
+}
+
+.services-link:hover {
+    color: #f0145a;
+}
+
+.slider-discription-text {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 46px;
+    margin-top: 5px;
+    background: linear-gradient(90.13deg, #f0145a .84%, #ef8080 99.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slider-discription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    background-color: #f5f5fa;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+}
+
+.man-slider-1 {
+    height: 528px;
+    border-radius: 12px 0 0 12px;
+    width: 400px;
+}
+
+.slider-content {
+    display: flex;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel-inner {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    background-color: #24a3ff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 50%;
+}
+
+.next {
+    right: 0;
+}
+
+.dot {
+    flex: 0 1 auto;
+    width: 16px;
+    height: 16px;
+    margin: 0 8px;
+    cursor: pointer;
+    background-color: #24a3ff;
+    border-radius: 50%;
+    transition: opacity .6s ease;
+    opacity: 0.5;
+    border: none;
+}
+
+.dot.active {
+    opacity: 1;
+}
+
+.slider-discription-author {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #b3b3ba;
+}
+
+.slider-discription-author-job {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #b3b3ba;
+}
+
+.fade {
+    animation: fade 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
 }
