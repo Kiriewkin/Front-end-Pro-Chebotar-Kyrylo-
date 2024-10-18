@@ -1,9 +1,6 @@
 body {
     margin: 0;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #eef2f3;
 }
 
@@ -96,4 +93,16 @@ button.delete-todo {
 
 button.delete-todo:hover {
     background-color: darkred;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
 }
