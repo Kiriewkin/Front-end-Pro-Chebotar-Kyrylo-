@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JSONPlaceholder API Demo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h2>Створити новий пост</h2>
+    <form id="postForm">
+        <label>
+            Заголовок:
+            <input type="text" id="title" required>
+        </label>
+        <br>
+        <label>
+            Текст:
+            <textarea id="body" required></textarea>
+        </label>
+        <br>
+        <button type="submit">Створити пост</button>
+    </form>
+
+    <p id="message" style="color: green;"></p>
+    
+    <h1>Пости</h1>
+    <div id="postsContainer"></div>
+
+
+
     <script src="main.js"></script>
 </body>
 </html>
