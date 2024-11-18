@@ -1,0 +1,39 @@
+.main-container {
+    width: 1000px;
+    height: 350px;
+    background-color: darkslategray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-gradient {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    background: linear-gradient(to right, #0066b2, #ffffff, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.text-country {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+.decorative-line {
+    width: 80%;
+    height: 4px;
+    margin: 20px auto 0;
+    background: linear-gradient(to right, #0066b2, #ffffff, #ff0000);
+    border-radius: 2px;
+}

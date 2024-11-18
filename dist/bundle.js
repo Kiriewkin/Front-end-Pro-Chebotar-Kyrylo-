@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log(19),console.log(6),new class{constructor(s,o,e){this.name=s,this.surname=o,this.age=e}displayInfo(){console.log(`Меня зовут ${this.name} ${this.surname}, мне ${this.age} год!`)}}("Кирилл","Чеботарь",21).displayInfo()})();
