@@ -1,0 +1,128 @@
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    min-height: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.todo-input {
+    width: 80%;
+    height: 40px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.todo-input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+.todo-input:focus {
+    border-color: #45a049;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-main {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.btn-main:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-main:active {
+    background-color: #388e3c;
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.new-todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+
+    & div {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.todo-list {
+    padding: 0px;
+    margin: 0px;
+    width: 80%;
+    list-style-type: none;
+}
+
+button.delete-todo {
+    width: 61px;
+    height: 25px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.edit-todo {
+    width: 103px;
+    height: 25px;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: rgb(0, 80, 0);
+    }
+}
+
+button.delete-todo:hover {
+    background-color: darkred;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
