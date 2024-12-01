@@ -1,28 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 
-import "./Emoji.css"
+const Results = ({ emojis }) => {
+    const winner = emojis.reduce(
+        (max, emoji) => (emoji.votes > max.votes ? emoji : max),
+        { votes: 0 }
+    );
 
-class Results extends Component {
-    showResults = () => {
-        const { emojis } = this.props;
-
-        const winner = emojis.reduce(
-            (max, emoji) => (emoji.votes > max.votes ? emoji : max),
-            { votes: 0 }
-        );
-
-        return winner.votes > 0
-            ? `Победитель ${winner.symbol} (${winner.name}) с ${winner.votes} голосами!`
-            : "Пока нет голосов";
-    };
-
-    render() {
-        return (
-            <div>
-                <h2>{this.showResults()}</h2>
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            {winner.votes > 0 ? (
+                <h2>
+                    Победитель: {winner.symbol} ({winner.name}) с {winner.votes} голосами!
+                </h2>
+            ) : (
+                <h2>Пока нет голосов</h2>
+            )}
+        </div>
+    );
+};
 
 export default Results;
