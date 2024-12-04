@@ -1,0 +1,89 @@
+.header-container {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: background-color 0.3s;
+    margin-bottom: 40px;
+}
+
+.header-container-light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.header-container-dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.navlink {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navlink:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 5px;
+}
+
+.navlink-active {
+    color: #ffffff;
+    background-color: #007bff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.navlink-dark {
+    color: #ffffff;
+}
+
+.navlink-light {
+    color: #000000;
+}
+
+/* styles.css */
+.theme-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-button:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.theme-button:active {
+    transform: scale(0.95);
+    color: #ffffff;
+    background-color: #007bff;
+}
+
+.theme-button-light {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.theme-button-light:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.theme-button-dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.theme-button-dark:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
