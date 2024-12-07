@@ -7,6 +7,7 @@ import Layout from "./components/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
 import AboutMe from "./pages/Aboutme";
 import Contacts from "./pages/Contacts";
+import FormikForm from "./pages/FormikForm";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" index element={<TodoPage />} />
           <Route path="/aboutme" element={<AboutMe />} />
+          <Route path="/formikform" element={<FormikForm />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="*" element={<NotFound />} />
         </Route>

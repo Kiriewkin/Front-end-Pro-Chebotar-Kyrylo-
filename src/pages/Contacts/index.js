@@ -1,26 +1,32 @@
-import { React, useState } from 'react';
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from "yup";
 
 import './index.css'
 
 export default function Contacts() {
-    const [formData, setFormData] = useState({
+    const initialValues = {
         name: '',
         email: '',
         message: '',
-    })
-
-    const handleSumbit = (e) => {
-        e.preventDefault();
-        console.log('Данные', formData)
     }
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
+    const handleSubmit = (values, { resetForm }) => {
+        console.log('Данные отправлены', values);
+        resetForm();
     };
+
+    const validationSchema = Yup.object({
+        name: Yup.string()
+            .required("Ім'я обов'язкове")
+            .min(1, "Ім'я повинно містити мінімум 2 символи"),
+        email: Yup.string()
+            .required("Email обов'язковий")
+            .email("Некоректний email"),
+        message: Yup.string()
+            .required("Повідомлення обов'язкове")
+            .min(10, "Повідомлення повинно містити мінімум 10 символів"),
+    })
 
     return (
         <div className="contact-page">
@@ -46,28 +52,30 @@ export default function Contacts() {
 
             <p>Залиште повідомлення через форму нижче:</p>
 
-            <form className="contact-form" onSubmit={handleSumbit}>
-                <input
-                    type="text"
-                    id="name" 
-                    name="name" 
-                    value={formData.name} 
-                    onChange={handleChange} 
-                    placeholder="Ваше ім'я" />
-                <input
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    value={formData.email}
-                    onChange={handleChange} 
-                    placeholder="Ваш email" />
-                <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange} placeholder="Ваше повідомлення"></textarea>
-                <button type="submit">Надіслати</button>
-            </form>
+            <Formik
+                onSubmit={handleSubmit}
+                validationSchema={validationSchema}
+                initialValues={initialValues}
+            >
+                <Form className="contact-form">
+                    <Field type="text" name="name" placeholder="Ваше ім'я" />
+                    <ErrorMessage name="name" component="span" className="error" />
+
+                    <Field type="email" name="email" placeholder="Ваш email" />
+                    <ErrorMessage name="email" component="span" className="error" />
+
+                    <Field
+                        as="textarea"
+                        name="message"
+                        placeholder="Ваше повідомлення"
+                        rows="4"
+                        cols="50"
+                    />
+                    <ErrorMessage name="message" component="span" className="error" />
+                    <button type="submit">Submit</button>
+
+                </Form>
+            </Formik>
         </div>
     );
 }

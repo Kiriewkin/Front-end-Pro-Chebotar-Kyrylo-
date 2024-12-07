@@ -1,31 +1,45 @@
-import { useState } from "react"
+import { React } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-import './index.css'
+import "./index.css";
 
-export const TodoForm = ({addTodo}) => {
-    const [task, setTask] = useState('')
+export const TodoForm = ({ addTodo }) => {
+    const initialValues = {
+        todo: "",
+    };
 
-    const handleChange = (e) => {
-        setTask(e.target.value)
-    }
+    const handleSubmit = (values, { resetForm }) => {
+        addTodo(values.todo);
+        resetForm();
+    };
 
-    const handleSumbit = () => {
-        if (task) {
-            addTodo(task);
-            setTask('')
-        }
-    }
+    const validationSchema = Yup.object({
+        todo: Yup.string()
+            .required("Todo is required")
+            .min(5, "Todo must be at least 5 characters"),
+    });
 
     return (
-        <div style={{display: 'flex'}}>
-            <input
-                type="text"
-                value={task}
-                onChange={handleChange}
-                placeholder="Enter Task" 
-                className="todo-input"
-                />
-            <button onClick={handleSumbit} className="btn-form">Submit</button>
+        <div>
+            <Formik
+                initialValues={initialValues}
+                onSubmit={handleSubmit}
+                validationSchema={validationSchema}
+            >
+                <Form style={{ display: "flex" }}>
+                    <Field
+                        type="text"
+                        className="todo-input"
+                        name="todo"
+                        placeholder="Enter Todo"
+                    />
+                    <button type="submit" className="btn-form">
+                        Submit
+                    </button>
+                    <ErrorMessage name="todo" component="span" className="error-message" />
+                </Form>
+            </Formik>
         </div>
-    )
-}
+    );
+};
