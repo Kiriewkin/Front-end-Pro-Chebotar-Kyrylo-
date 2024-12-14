@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import AboutMe from "./pages/Aboutme";
 import Contacts from "./pages/Contacts";
 import FormikForm from "./pages/FormikForm";
+import Counter from "./pages/Counter";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/formikform" element={<FormikForm />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/counter" element={<Counter />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
@@ -25,5 +27,4 @@ function App() {
   )
 }
 
-export default App
-
+export default App;
