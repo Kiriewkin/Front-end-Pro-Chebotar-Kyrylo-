@@ -1,6 +1,10 @@
+import { useDispatch } from 'react-redux'
+import { deleteTodo, toggleTodo } from '../../store/slices/todoSlice'
 import './index.css'
 
-export default function TodoItem({ todo, toggleTodo, deleteTodo }) {
+export default function TodoItem ({todo}) {
+    const dispatch = useDispatch()
+    
     return (
         <div style={{
             display: 'flex',
@@ -13,13 +17,13 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo }) {
             <ul className='todo-list'>
                 <li
                     className='new-todo'
-                    onClick={() => toggleTodo(todo.id)}
+                    onClick={() => dispatch(toggleTodo(todo.id))}
                 >
-                    {todo.task}
+                    {todo.title}
                 </li>
             </ul>
             <button
-                onClick={() => deleteTodo(todo.id)}
+                onClick={() => dispatch(deleteTodo(todo.id))}
             >
                 X
             </button>

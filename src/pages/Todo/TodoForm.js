@@ -1,45 +1,62 @@
-import { React } from "react";
+import React from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo } from "../../store/slices/todoSlice";
+
 import "./index.css";
 
-export const TodoForm = ({ addTodo }) => {
-    const initialValues = {
-        todo: "",
+export const TodoForm = () => {
+  const alltodos = useSelector((state) => state.todo.todos);
+  console.log(alltodos)
+  const dispatch = useDispatch();
+
+  const initialValues = {
+    todo: "",
+  };
+
+  const handleSubmit = (values, { resetForm }) => {
+    const newTodo = {
+      id: uuidv4(),
+      title: values.todo,
+      completed: false,
     };
 
-    const handleSubmit = (values, { resetForm }) => {
-        addTodo(values.todo);
-        resetForm();
-    };
+    dispatch(addTodo(newTodo));
 
-    const validationSchema = Yup.object({
-        todo: Yup.string()
-            .required("Todo is required")
-            .min(5, "Todo must be at least 5 characters"),
-    });
+    resetForm();
+  };
 
-    return (
-        <div>
-            <Formik
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-                validationSchema={validationSchema}
-            >
-                <Form style={{ display: "flex" }}>
-                    <Field
-                        type="text"
-                        className="todo-input"
-                        name="todo"
-                        placeholder="Enter Todo"
-                    />
-                    <button type="submit" className="btn-form">
-                        Submit
-                    </button>
-                    <ErrorMessage name="todo" component="span" className="error-message" />
-                </Form>
-            </Formik>
-        </div>
-    );
+  const validationSchema = Yup.object({
+    todo: Yup.string()
+      .required("Todo is required")
+      .min(5, "Todo must be at least 5 characters"),
+  });
+
+  return (
+    <div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        {() => (
+          <Form style={{ display: "flex" }}>
+            <Field
+              type="text"
+              className="todo-input"
+              name="todo"
+              placeholder="Enter Todo"
+            />
+            <button type="submit" className="btn-form">
+              Submit
+            </button>
+            <ErrorMessage name="todo" component="span" className="error-message" />
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
 };
