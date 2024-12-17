@@ -3,14 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../../store/slices/todoSlice";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../store/thunk/todoThunk";
 
 import "./index.css";
 
 export const TodoForm = () => {
-  const alltodos = useSelector((state) => state.todo.todos);
-  console.log(alltodos)
   const dispatch = useDispatch();
 
   const initialValues = {
