@@ -4,7 +4,6 @@ import TodoItem from "./TodoItem"
 
 export const TodoList = () => {
     const todos = useSelector((state) => state.todo.todos)
-    console.log(todos)
     return (
         <div style={{ maxWidth: '100%' }}>
             {todos.map(todo => (

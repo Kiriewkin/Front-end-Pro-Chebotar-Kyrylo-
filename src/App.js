@@ -9,17 +9,22 @@ import AboutMe from "./pages/Aboutme";
 import Contacts from "./pages/Contacts";
 import FormikForm from "./pages/FormikForm";
 import Counter from "./pages/Counter";
+import Login from "./pages/Login";
+import ProtectedRouter from "./utils/ProtectedRoutes";
 
 function App() {
   return (
     <ThemeProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" index element={<TodoPage />} />
-          <Route path="/aboutme" element={<AboutMe />} />
+          <Route path="/login" element={<Login />} />
+          <Route element={<ProtectedRouter />}>
+            <Route path="/" index element={<TodoPage />} />
+            <Route path="/aboutme" element={<AboutMe />} />
+            <Route path="/counter" element={<Counter />} />
+          </Route>
           <Route path="/formikform" element={<FormikForm />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route path="/counter" element={<Counter />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
