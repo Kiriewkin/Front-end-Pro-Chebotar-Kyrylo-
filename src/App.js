@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 
 import TodoPage from "./pages/Todo";
-import Layout from "./components/Layout/Layout";
+import MyLayout from "./components/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
 import AboutMe from "./pages/Aboutme";
 import Contacts from "./pages/Contacts";
@@ -16,11 +16,11 @@ function App() {
   return (
     <ThemeProvider>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<MyLayout />}>
           <Route path="/login" element={<Login />} />
           <Route element={<ProtectedRouter />}>
-            <Route path="/" index element={<TodoPage />} />
-            <Route path="/aboutme" element={<AboutMe />} />
+            <Route path="/" index element={<AboutMe/>} />
+            <Route path="/todo" element={<TodoPage />} />
             <Route path="/counter" element={<Counter />} />
           </Route>
           <Route path="/formikform" element={<FormikForm />} />
